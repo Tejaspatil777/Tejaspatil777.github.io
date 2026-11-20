@@ -1,3 +1,10 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Tejas Patil, Java full-stack and AI/ML developer. Projects, experience, skills and resume.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Tejas Patil</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -134,6 +141,44 @@ h1.title em{font-style:normal;color:var(--accent)}
 .dotp{transform-box:fill-box;transform-origin:center;animation:dotp 1.8s ease-in-out infinite}
 @keyframes dotp{50%{transform:scale(1.6)}}
 
+/* project detail window */
+.card{cursor:pointer}
+.more{display:inline-flex;align-items:center;gap:8px;font:600 .88rem var(--font);color:var(--accent);padding-top:6px}
+.more svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+.card:hover .more svg,.card:focus-visible .more svg{transform:translateX(5px)}
+.card .chips{padding-top:2px}
+.modal{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.m-back{position:absolute;inset:0;background:rgba(20,16,10,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .3s}
+.m-panel{position:relative;width:100%;max-width:860px;max-height:100%;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:0 40px 90px -30px rgba(0,0,0,.6);opacity:0;transform:translateY(28px) scale(.98);transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1);outline:0}
+.modal.in .m-back{opacity:1}
+.modal.in .m-panel{opacity:1;transform:none}
+.m-close{position:absolute;right:16px;top:16px;z-index:2;background:var(--surface)}
+.m-prev{height:clamp(150px,26vw,230px);background:var(--surface-2);border-bottom:1px solid var(--line);overflow:hidden}
+.m-prev svg{display:block;width:100%;height:100%}
+.m-body{padding:clamp(22px,4vw,40px);display:grid;gap:14px}
+.m-body h3{font-size:clamp(1.6rem,4vw,2.4rem)}
+.m-lead{font-size:1.15rem;line-height:1.55;color:var(--ink)!important;max-width:60ch}
+.m-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 36px;margin-top:12px;padding-top:24px;border-top:1px solid var(--line)}
+@media (max-width:700px){.m-grid{grid-template-columns:minmax(0,1fr)}}
+.m-grid h4{margin:0 0 10px;font:500 .76rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.m-grid p,.m-grid li{color:var(--muted)}
+.m-grid ul,.m-grid ol{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.m-grid li{position:relative;padding-left:22px}
+.m-grid ul li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:1.5px;background:var(--accent)}
+.m-grid ol{counter-reset:s}
+.m-grid ol li{counter-increment:s;padding-left:36px}
+.m-grid ol li::before{content:counter(s);position:absolute;left:0;top:.05em;width:24px;height:24px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font:600 .78rem var(--mono);display:grid;place-items:center}
+.m-wide{grid-column:1/-1}
+.m-grid li b{color:var(--ink);font-weight:600}
+.feat{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 36px!important}
+@media (max-width:700px){.feat{grid-template-columns:minmax(0,1fr)}}
+.stack{display:grid;gap:12px}
+.stack>div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:6px 16px;align-items:start}
+.stack h5{margin:0;font:500 .78rem var(--mono);color:var(--muted);padding-top:7px}
+.m-grid .chips{margin-top:0;padding:0}
+@media (max-width:560px){.stack>div{grid-template-columns:minmax(0,1fr)}.stack h5{padding-top:0}}
+.m-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+
 /* about */
 .about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(24px,5vw,64px);align-items:start}
 @media (max-width:860px){.about{grid-template-columns:minmax(0,1fr)}}
@@ -231,6 +276,9 @@ footer{padding-block:34px 44px}
   .rv-hide{opacity:1;transform:none}
 }
 </style>
+</head>
+<body>
+
 
 <a class="skip" href="#main">Skip to content</a>
 
@@ -284,7 +332,7 @@ footer{padding-block:34px 44px}
         </div>
         <div class="facts-row fade" style="--d:1250ms">
           <div class="fact"><b data-count="3">3</b><span>Internships</span></div>
-          <div class="fact"><b data-count="3">3</b><span>Projects</span></div>
+          <div class="fact"><b data-count="2">2</b><span>Projects</span></div>
           <div class="fact"><b data-count="7.63">7.63</b><span>B.Tech CGPA</span></div>
         </div>
       </div>
@@ -299,39 +347,40 @@ footer{padding-block:34px 44px}
     <div class="wrap">
       <div class="sec-head rv"><div><span class="eyebrow">Selected work</span><h2>Projects I've built.</h2></div><p>Computer vision, machine learning and full-stack work. The previews are illustrations, not screenshots.</p></div>
       <div class="work stagger">
-        <article class="card">
+        <article class="card" role="button" tabindex="0" aria-haspopup="dialog" data-repo="https://github.com/Tejaspatil777/Darshan_AI" aria-label="Open details: DarshanAI Face Recognition Attendance">
           <div class="preview">
-            <svg viewBox="0 0 240 150" role="img" aria-label="A face inside detection brackets with a scanning line">
-              <path d="M78 34v-10h10M162 34v-10h-10M78 116v10h10M162 116v10h-10" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
-              <circle cx="120" cy="64" r="22" fill="none" stroke="var(--muted)" stroke-width="2"/>
-              <path d="M84 118c4-22 20-32 36-32s32 10 36 32" fill="none" stroke="var(--muted)" stroke-width="2"/>
-              <rect class="scan" x="80" y="32" width="80" height="3" rx="1.5" fill="var(--soft)"/>
-              <text class="lbl" x="120" y="144" text-anchor="middle">FACE DETECTED</text>
+            <svg viewBox="0 0 240 150" role="img" aria-label="A phone camera with a 3 by 3 grid framing a classroom, with faces being matched">
+              <rect x="84" y="6" width="72" height="124" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+              <path d="M108 18v100M132 18v100M94 48h52M94 82h52" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+              <circle class="dotp" cx="102" cy="36" r="6" fill="var(--accent)"/>
+              <circle class="dotp" cx="138" cy="64" r="6" fill="var(--soft)"/>
+              <circle class="dotp" cx="120" cy="100" r="6" fill="var(--accent)"/>
+              <rect class="scan" x="90" y="20" width="60" height="3" rx="1.5" fill="var(--soft)"/>
+              <text class="lbl" x="120" y="145" text-anchor="middle">3&#215;3 GRID &#183; FACES MATCHED</text>
             </svg>
           </div>
           <div class="cb">
-            <span class="kind">Computer vision</span>
-            <h3>Face Recognition Attendance System</h3>
-            <p>Automates student attendance using face detection and recognition. The pipeline runs on Python and OpenCV, and attendance records are stored in a relational database to cut manual work.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">SQL database</span></div>
+            <span class="kind">Mobile &amp; AI</span>
+            <h3>DarshanAI Face Recognition Attendance</h3>
+            <p>A mobile-first attendance app: students enroll their face, faculty photograph the classroom, and an AI service matches students. Built on a Java Spring Boot 3 backend with JWT and PostgreSQL.</p>
+            <span class="more" aria-hidden="true">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <div class="detail" hidden>
+              <span class="kind">Mobile &amp; AI</span>
+              <h3>DarshanAI Face Recognition Attendance</h3>
+              <p class="m-lead">DarshanAI (Meritendance) is an AI-powered attendance application that automates classroom attendance with face detection and face recognition. It combines a Flutter mobile app, a Java Spring Boot 3 backend, a Python AI service and a PostgreSQL database.</p>
+              <div class="m-grid">
+                <section class="m-wide"><h4>Face enrollment flow</h4><ol class="flow feat"><li>The student opens Face Enrollment and the live camera starts.</li><li>Google ML Kit detects a stable face and the app captures a photo automatically.</li><li>The capture repeats until 7 images are taken, and each is sent as Base64 to the backend.</li><li>Spring Boot forwards the images to the Python AI service.</li><li>SCRFD detection, quality checks and alignment run, then ArcFace produces a 512-dimensional embedding.</li><li>The embedding is stored in PostgreSQL.</li></ol></section>
+                <section class="m-wide"><h4>Attendance flow</h4><ol class="flow feat"><li>Faculty opens the full-screen attendance camera with a 3×3 composition grid. The grid is only a guide and is not part of the photo.</li><li>They capture 5 to 10 classroom photos and upload them, which creates an attendance session.</li><li>The session is set to PROCESSING and a background worker sends the photos to the AI service.</li><li>SCRFD detects multiple faces and ArcFace embeddings are compared with the enrolled students.</li><li>The result is matched students and unknown faces, and the session moves to REVIEW.</li><li>Faculty resolve the unknown faces and confirm, and the session becomes FINAL. If processing fails it becomes FAILED.</li></ol></section>
+                <section class="m-wide"><h4>Key features</h4><ul class="built feat"><li><b>Automatic face capture:</b> The enrollment camera detects a stable face and captures the 7 images without any button presses.</li><li><b>Face quality validation:</b> The AI service checks each image before an embedding is created.</li><li><b>Multi-photo classroom attendance:</b> Several classroom photos are processed together to recognize many students at once.</li><li><b>Unknown-face review:</b> Faces that do not match are shown to faculty, who can link them to the right student before confirming.</li><li><b>Role-based access:</b> Separate ADMIN, FACULTY and STUDENT roles.</li><li><b>JWT with refresh tokens:</b> Access and refresh tokens, with automatic token refresh in the Flutter API client.</li></ul></section>
+                <section class="m-wide"><h4>How it is built</h4><ul class="built"><li>Backend in Java with Spring Boot 3: authentication, business logic, enrollment, attendance sessions and persistence.</li><li>JWT security with Spring Security, access and refresh tokens and role-based authorization.</li><li>Asynchronous attendance processing: the upload returns quickly while a background worker calls the AI service.</li><li>PostgreSQL storage for users, enrollments, embeddings and attendance.</li><li>A clear split of work: the Flutter app handles the camera, live face detection and API calls, while the Python service creates the final ArcFace embeddings and does the matching.</li><li>Privacy practices from the project guide: keep face images, Base64 data, database credentials and JWT secrets out of Git, restrict access to biometric data and use HTTPS in production.</li></ul></section>
+                <section class="m-wide"><h4>Status</h4><p>In active development. Planned next: attendance analytics, reports and export, admin improvements, production deployment and security hardening.</p></section>
+                <section class="m-wide"><h4>Technology stack</h4><div class="stack"><div><h5>Frontend</h5><div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Camera</span><span class="chip">Google ML Kit</span></div></div><div><h5>Backend</h5><div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot 3</span><span class="chip">Spring Security</span><span class="chip">JWT</span><span class="chip">REST APIs</span><span class="chip">Background processing</span></div></div><div><h5>AI</h5><div class="chips"><span class="chip">Python</span><span class="chip">SCRFD</span><span class="chip">ArcFace</span><span class="chip">Face embeddings</span></div></div><div><h5>Database</h5><div class="chips"><span class="chip">PostgreSQL</span></div></div></div></section>
+              </div>
+            </div>
+            <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot 3</span><span class="chip">JWT</span><span class="chip">PostgreSQL</span><span class="chip">Flutter</span><span class="chip">Python</span></div>
           </div>
         </article>
-        <article class="card">
-          <div class="preview">
-            <svg viewBox="0 0 240 150" role="img" aria-label="A heartbeat line being drawn over a grid">
-              <path d="M0 30h240M0 75h240M0 120h240M40 0v150M120 0v150M200 0v150" stroke="var(--line)" stroke-width="1" fill="none"/>
-              <path class="pulse" pathLength="1" d="M0 80H52l8-8 8 8h10l10-44 14 70 12-48 8 22h38l8-8 8 8h8l8-30 10 46 8-16h54" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              <text class="lbl" x="120" y="144" text-anchor="middle">PATIENT PARAMETERS &#8594; INSIGHTS</text>
-            </svg>
-          </div>
-          <div class="cb">
-            <span class="kind">Machine learning</span>
-            <h3>AI Healthcare System</h3>
-            <p>An AI-based solution that monitors and analyzes patient health parameters. Machine learning produces predictive insights and recommendations that support smarter, automated analysis.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">Machine Learning</span><span class="chip">Predictive analytics</span></div>
-          </div>
-        </article>
-        <article class="card">
+        <article class="card" role="button" tabindex="0" aria-haspopup="dialog" data-repo="https://github.com/Tejaspatil777/coffeehub_updated" aria-label="Open details: Online Restaurant Food Ordering and Table Booking">
           <div class="preview">
             <svg viewBox="0 0 240 150" role="img" aria-label="An order ticket filling up above a row of tables">
               <rect x="70" y="14" width="100" height="100" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
@@ -346,8 +395,20 @@ footer{padding-block:34px 44px}
           <div class="cb">
             <span class="kind">Full-stack</span>
             <h3>Online Restaurant Food Ordering &amp; Table Booking</h3>
-            <p>A restaurant management application with backend business logic, database integration and API services for orders and menu management, delivered end to end.</p>
-            <div class="chips"><span class="chip">Java</span><span class="chip">REST APIs</span><span class="chip">PostgreSQL</span><span class="chip">TypeScript</span></div>
+            <p>A restaurant platform that covers table booking, menu, cart, payment and kitchen workflow, built with a Spring Boot backend, a React and TypeScript frontend and a secure admin menu import.</p>
+            <span class="more" aria-hidden="true">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <div class="detail" hidden>
+              <span class="kind">Full-stack</span>
+              <h3>Online Restaurant Food Ordering &amp; Table Booking</h3>
+              <p class="m-lead">A restaurant management application that takes a customer from booking a table to ordering, paying and being served, with a Java Spring Boot backend, a React and TypeScript frontend and role-based access.</p>
+              <div class="m-grid">
+                <section class="m-wide"><h4>The journey it supports</h4><ol class="flow feat"><li>The user logs in and opens the dashboard.</li><li>They book a table, and the booking goes through an approval step.</li><li>They view the menu, which loads from the backend database.</li><li>They add items to the cart, using the menu IDs generated by the backend.</li><li>They check out and pay, and the order is confirmed.</li><li>The chef is notified and prepares the food.</li><li>The waiter is notified and serves the food.</li><li>The order is marked completed and the table is freed.</li></ol></section>
+                <section class="m-wide"><h4>Key features</h4><ul class="built feat"><li><b>Table booking:</b> Users book a table and bookings go through an approval step before the table is held.</li><li><b>Menu from the database:</b> The menu page loads from the backend, so the database is the single source of truth for items, prices and categories.</li><li><b>Cart, checkout and payment:</b> The cart works with backend-generated menu IDs, followed by checkout, payment and order confirmation.</li><li><b>Kitchen and floor workflow:</b> The chef and the waiter are notified at the right stages, from food preparation to serving.</li><li><b>Order completion:</b> When an order is completed, the table is freed for the next booking.</li><li><b>Admin menu import:</b> An admin-only endpoint imports menu items in bulk and creates categories automatically.</li></ul></section>
+                <section class="m-wide"><h4>How I built it</h4><ul class="built"><li>Backend REST APIs in Java with Spring Boot 3.2 on Java 17, with business logic kept in service classes.</li><li>The admin menu import: the /admin/menu/import endpoint, the importMenuItems() service method, the getOrCreateCategory() helper and the request and summary DTOs.</li><li>Import safety: the import is transactional and idempotent, so running it more than once does not create duplicates.</li><li>Security with JWT token validation and role-based access control, with admin-only endpoints for menu management.</li><li>Database design for categories and menu items with a relationship between them, using PostgreSQL.</li><li>Frontend work in React and TypeScript: the menu page, a menu source state that tracks whether items come from the backend, a fallback so the page never shows empty, and the admin API client.</li><li>A shell script that imports the starting menu of 23 items across 6 categories using an admin token.</li></ul></section>
+                <section class="m-wide"><h4>Technology stack</h4><div class="stack"><div><h5>Backend</h5><div class="chips"><span class="chip">Java 17</span><span class="chip">Spring Boot 3.2.0</span><span class="chip">Maven</span><span class="chip">REST APIs</span></div></div><div><h5>Frontend</h5><div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span></div></div><div><h5>Database</h5><div class="chips"><span class="chip">PostgreSQL</span></div></div><div><h5>Security</h5><div class="chips"><span class="chip">JWT</span><span class="chip">Role-based access control</span></div></div><div><h5>Automation</h5><div class="chips"><span class="chip">Shell import script</span></div></div></div></section>
+              </div>
+            </div>
+            <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">PostgreSQL</span><span class="chip">JWT</span></div>
           </div>
         </article>
       </div>
@@ -365,7 +426,7 @@ footer{padding-block:34px 44px}
           <p>I'm Tejas Patil, a Computer Science Engineering graduate (AI &amp; ML specialization) from Jawaharlal Institute of Technology, Borawan, affiliated with RGPV (2022 &ndash; 2026, CGPA 7.63). My degree gave me a strong grounding in object-oriented programming, databases and software engineering. The work I enjoy most is backend development: designing REST APIs, modeling relational data and building authentication so services stay secure and easy to extend.</p>
           <p>Java and Spring Boot are the core of my stack. During my Infosys Springboard virtual internship (Nov 2025 &ndash; Jan 2026), I worked on a Coffee Ordering and Management Platform: authentication, CRUD operations, MVC backend modules and service-layer logic, with MySQL integrated through Spring Data JPA and every API tested and debugged in Postman.</p>
           <p>At MBrothers International in Pune (Jan &ndash; Jul 2026), I built backend and full-stack features with Java, Spring Boot, REST APIs and database integration. I delivered a User Management System with CRUD operations and secure authentication, worked in an Agile team using Git, GitHub and Jira, and contributed to AI-powered application development, which sharpened my debugging and problem solving.</p>
-          <p>On the AI side, I built a Face Recognition Attendance System with Python and OpenCV that automates student attendance and stores the records in a relational database. I also work with FastAPI, machine learning and generative AI, and I want to keep bringing practical AI into the backends I build.</p>
+          <p>On the AI side, I built DarshanAI, a mobile app where students enroll their face and faculty photograph the classroom so the AI can match students, with a Java Spring Boot 3 backend, JWT and PostgreSQL. I also work with machine learning and generative AI, and I want to keep bringing practical AI into the backends I build.</p>
           <p>In June 2026 I scored 1323.08 (73.50%) in the TCS NQT for the TCS-ION Graduate Engineer Trainee, IT, PSP program.</p>
           <p>Next, I want to grow my AWS, Docker and CI/CD skills so I can take a feature from its first commit to a running deployment. Until then I work the way I do now: in Agile teams, testing APIs deliberately in Postman, debugging carefully and keeping code readable for whoever opens it next.</p>
         </div>
@@ -436,13 +497,13 @@ footer{padding-block:34px 44px}
       <div class="sec-head rv"><div><span class="eyebrow">Technical skills</span><h2>The toolbox.</h2></div></div>
       <div class="legend rv"><span><i></i>Used in internships or projects</span><span><i></i>Working knowledge</span></div>
       <div class="skills stagger">
-        <article class="sk"><h3>Languages</h3><div class="tg"><span class="t">Java</span><span class="t">Python</span><span class="t">SQL</span><span class="t k">C</span><span class="t k">Dart</span></div></article>
-        <article class="sk"><h3>Backend</h3><div class="tg"><span class="t">Spring Boot</span><span class="t">Spring MVC</span><span class="t">Spring Data JPA</span><span class="t">Spring Security</span><span class="t">Hibernate / JPA</span><span class="t">RESTful APIs</span><span class="t">JWT</span><span class="t k">Maven</span></div></article>
+        <article class="sk"><h3>Languages</h3><div class="tg"><span class="t">Java</span><span class="t">Python</span><span class="t">SQL</span><span class="t">Dart</span><span class="t k">C</span></div></article>
+        <article class="sk"><h3>Backend</h3><div class="tg"><span class="t">Spring Boot</span><span class="t">Spring MVC</span><span class="t">Spring Data JPA</span><span class="t">Spring Security</span><span class="t">Hibernate / JPA</span><span class="t">RESTful APIs</span><span class="t">JWT</span><span class="t">BCrypt</span><span class="t">RBAC</span><span class="t k">Maven</span></div></article>
         <article class="sk"><h3>Frontend</h3><div class="tg"><span class="t">HTML5</span><span class="t">CSS3</span><span class="t">JavaScript</span><span class="t">React.js</span><span class="t">TypeScript</span></div></article>
-        <article class="sk"><h3>AI / ML</h3><div class="tg"><span class="t">FastAPI</span><span class="t">OpenCV</span><span class="t">Machine Learning</span><span class="t">Generative AI</span></div></article>
+        <article class="sk"><h3>AI / ML</h3><div class="tg"><span class="t">SCRFD</span><span class="t">InsightFace</span><span class="t">ArcFace</span><span class="t">OpenCV</span><span class="t">ONNX Runtime</span><span class="t">NumPy</span><span class="t">FastAPI</span><span class="t">Machine Learning</span><span class="t">Generative AI</span></div></article>
         <article class="sk"><h3>Databases</h3><div class="tg"><span class="t">PostgreSQL</span><span class="t">MySQL</span><span class="t k">MongoDB</span><span class="t k">Oracle</span></div></article>
-        <article class="sk"><h3>Mobile</h3><div class="tg"><span class="t k">Flutter</span><span class="t k">Android</span><span class="t k">REST API integration</span><span class="t k">Responsive UI</span></div></article>
-        <article class="sk"><h3>Cloud &amp; DevOps</h3><div class="tg"><span class="t k">AWS (EC2, S3)</span><span class="t k">Docker</span><span class="t k">Jenkins</span><span class="t k">GitHub Actions</span></div></article>
+        <article class="sk"><h3>Mobile</h3><div class="tg"><span class="t">Flutter</span><span class="t">Google ML Kit</span><span class="t k">Android</span><span class="t k">REST API integration</span><span class="t k">Responsive UI</span></div></article>
+        <article class="sk"><h3>Cloud &amp; DevOps</h3><div class="tg"><span class="t k">AWS (EC2, S3)</span><span class="t">Docker Compose</span><span class="t k">Docker</span><span class="t k">Jenkins</span><span class="t k">GitHub Actions</span></div></article>
         <article class="sk"><h3>Tools</h3><div class="tg"><span class="t">Git</span><span class="t">GitHub</span><span class="t">Postman</span><span class="t">Jira</span><span class="t">IntelliJ IDEA</span><span class="t">VS Code</span><span class="t k">Swagger / OpenAPI</span><span class="t k">JUnit</span></div></article>
       </div>
     </div>
@@ -490,6 +551,14 @@ footer{padding-block:34px 44px}
 <footer>
   <div class="wrap foot"><span>&copy; 2026 Tejas Patil</span><span>Designed and built by me with HTML, CSS and JavaScript</span><a href="#top">Back to home &uarr;</a></div>
 </footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" hidden>
+  <div class="m-back" data-close></div>
+  <div class="m-panel" id="m-panel" tabindex="-1">
+    <button class="icon-btn m-close" type="button" data-close aria-label="Close project details"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="m-prev" id="m-prev" aria-hidden="true"></div>
+    <div class="m-body" id="m-body"></div>
+  </div>
+</div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -556,6 +625,45 @@ if(fine&&!reduce){
   $$('.card').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});});
 }
 
+/* project details window */
+var modal=$('#modal'),mPanel=$('#m-panel'),mBody=$('#m-body'),mPrev=$('#m-prev'),lastCard=null,closing=0;
+function openProject(card){
+  var d=card.querySelector('.detail');if(!d)return;
+  lastCard=card;clearTimeout(closing);
+  mBody.innerHTML=d.innerHTML;
+  var h=mBody.querySelector('h3');if(h)h.id='m-title';
+  var acts=document.createElement('div');acts.className='m-actions';
+  var gh=card.getAttribute('data-repo')||LINKS.github;
+  if(gh){var a=document.createElement('a');a.className='btn btn-dark';a.href=gh;a.target='_blank';a.rel='noopener';a.textContent=card.getAttribute('data-repo')?'View code on GitHub':'See more on GitHub';acts.appendChild(a);}
+  var b=document.createElement('button');b.type='button';b.className='btn';b.setAttribute('data-close','');b.textContent='Back to projects';acts.appendChild(b);
+  mBody.appendChild(acts);
+  mPrev.innerHTML=card.querySelector('.preview').innerHTML;
+  mPanel.scrollTop=0;
+  modal.hidden=false;document.body.style.overflow='hidden';
+  requestAnimationFrame(function(){modal.classList.add('in');mPanel.focus();});
+}
+function closeProject(){
+  if(modal.hidden)return;
+  modal.classList.remove('in');document.body.style.overflow='';
+  closing=setTimeout(function(){modal.hidden=true;if(lastCard)lastCard.focus();},reduce?0:300);
+}
+$$('.card').forEach(function(c){
+  c.addEventListener('click',function(){openProject(c);});
+  c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openProject(c);}});
+});
+modal.addEventListener('click',function(e){if(e.target.closest('[data-close]'))closeProject();});
+document.addEventListener('keydown',function(e){
+  if(modal.hidden)return;
+  if(e.key==='Escape'){closeProject();return;}
+  if(e.key==='Tab'){
+    var f=$$('a[href],button',mPanel).filter(function(x){return !x.hidden&&x.offsetParent!==null;});
+    if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&(document.activeElement===first||document.activeElement===mPanel)){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  }
+});
+
 /* resume download: viewer save in Claude, plain download link elsewhere */
 $$('[data-resume]').forEach(function(a){
   a.addEventListener('click',function(e){
@@ -582,3 +690,6 @@ $$('[data-copy]').forEach(function(b){
 });
 })();
 </script>
+
+</body>
+</html>
